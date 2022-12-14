@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Account</title>
+    <title>Subject</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -223,11 +223,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>List Account</h1>
+            <h1>List Subject</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item">List Account</li>
+                    <li class="breadcrumb-item"><a href="admin.html">Home</a></li>
+                    <li class="breadcrumb-item">List Subject</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -238,7 +238,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">List Account</h5>
+                            <h5 class="card-title">List Subject</h5>
                             <!-- Browser Default Validation -->
                             <div class="table-responsive">
 
@@ -247,13 +247,16 @@
                                         <tr>
                                             <th scope="col"></th>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Username</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">PhoneNumber</th>
-                                            <th scope="col">Address</th>
+                                            <th scope="col">Subject</th>
+                                            <th scope="col">Start Time</th>
+                                            <th scope="col">Exam Date</th>
+                                            <th scope="col">Duration</th>
+                                            <th scope="col">ClassRome</th>
+                                            <th scope="col">Faculty</th>
+                                            <th scope="col">Status</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="tb_user_present"></tbody>
+                                    <tbody id="tb_subject_present"></tbody>
                                 </table>
                             </div>
                             <!-- End Browser Default Validation -->
@@ -284,39 +287,52 @@
 </body>
 
 <script>
-    function render_user_table(users) {
+    function render_user_table(subjects) {
         let html = '';
-        for (let i = 0; i < users.length; i++) {
-            let user = users[i];
-            let firstname = user.firstName;
-            let lastname = user.lastName;
-            let fullname = firstname + " " + lastname;
-            let gender = user.gender;
-            let birthday = user.birthday;
-            let job = user.job;
-            let address = user.address;
-            let phonenumber = user.phoneNumber;
-            let email = user.email;
-            let username = user.username;
-            let ID = user.id;
+        for (let i = 0; i < subjects.length; i++) {
+            let subject = subjects[i];
+            let name = subject.name;
+            let startTime = subject.startTime;
+            let date = subject.date;
+            let birthday = subject.birthday;
+            let duration = subject.duration;
+            let classRoom = subject.classRoom;
+            let phonenumber = subject.phoneNumber;
+            let faculty = subject.faculty;
+            let status = subject.status;
+            let ID = subject.id;
 
-            if (fullname == null) {
-                fullname = "Not updated yet";
+            if (name == null) {
+                name = "Not updated yet";
             }
-            if (gender == null) {
-                gender = "Not updated yet";
+            if (startTime == null) {
+                startTime = "Not updated yet";
             }
-            if (birthday == null) {
-                birthday = "Not updated yet";
+            if (date == null) {
+                date = "Not updated yet";
             }
-            if (job == null) {
-                job = "Not updated yet";
+            if (duration == null) {
+                duration = "Not updated yet";
             }
-            if (address == null) {
-                address = "Not updated yet";
+            if (classRoom == null) {
+                classRoom = "Not updated yet";
             }
-            if (phonenumber == null) {
-                phonenumber = "Not updated yet";
+            if (status == null) {
+                status = "Not updated yet";
+                if (status == "SUCCESS") {
+                    status == "Done";
+                } if (status == "ACTIVE") {
+                    status == "On going";
+                }
+                if (status == "PREACTIVE") {
+                    status == "Up coming";
+                }
+                else{
+                    status == "Not start";
+                }
+            }
+            if (faculty == null) {
+                faculty = "Not updated yet";
             }
             html += `<tr scope="row">
                     <td>
@@ -328,20 +344,23 @@
                     <td id="id-selector">${ID}</td>
                     <td class="pl-0">
                     <div class="d-flex align-items-center">
-                    <a onclick="mydirectional(${ID})" id="username" href="#" class="name">${username}</a>
+                    <a onclick="mydirectional(${ID})" id="name" href="#" class="name">${name}</a>
                     </div>
                     </td>
-                    <td id="email">${email}</td>
-                    <td id="phonenumber">${phonenumber}</td>
-                    <td id="address">${address}</td>
+                    <td id="startTime">${startTime}</td>
+                    <td id="date">${date}</td>
+                    <td id="duration">${duration}</td>
+                    <td id="classRoom">${classRoom}</td>
+                    <td id="faculty">${faculty}</td>
+                    <td id="status">${status}</td>
                     </tr>`
         }
         return html;
     }
 
-    function myFunctionAllUser() {
+    function myFunctionAll() {
         console.log(localStorage.getItem("id"));
-        fetch('https://localhost:7155/api/Auth', {
+        fetch('https://localhost:7155/api/subject', {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -356,53 +375,53 @@
             })
             .then((response) => {
                 let html = render_user_table(response)
-                document.getElementById('tb_user_present').innerHTML = html
+                document.getElementById('tb_subject_present').innerHTML = html
             })
             .catch(error => console.log(error));
     }
-    myFunctionAllUser();
+    myFunctionAll();
 
     function myFunctionProfileViews() {
-    console.log(localStorage.getItem("id"));
-    fetch('https://localhost:7155/api/Auth/' + localStorage.getItem("id"), {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem("token")}`
-      },
-    })
-      .then(response => {
-        if (response.status == 200) {
-          console.log(response);
-          return response.json();
-        }
-      })
-      .then((response) => {
-        console.log(response)
-        let firstname = response.firstName;
-        let lastname = response.lastName;
-        let fullname = firstname + " " + lastname;
-        let job = response.role;
-        let username = response.username;
-        console.log(username);
-        if (fullname == null) {
-          fullname = "Not updated yet";
-        }
-        document.getElementById("fullname-0").innerHTML = fullname;
-        document.getElementById("job-0").innerHTML = job;
-        document.getElementById("username-title").innerHTML = username;
-      })
-      .catch(error => console.log(error));
-  }
-  myFunctionProfileViews();
+        console.log(localStorage.getItem("id"));
+        fetch('https://localhost:7155/api/Auth/' + localStorage.getItem("id"), {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem("token")}`
+            },
+        })
+            .then(response => {
+                if (response.status == 200) {
+                    console.log(response);
+                    return response.json();
+                }
+            })
+            .then((response) => {
+                console.log(response)
+                let firstname = response.firstName;
+                let lastname = response.lastName;
+                let fullname = firstname + " " + lastname;
+                let job = response.role;
+                let username = response.username;
+                console.log(username);
+                if (fullname == null) {
+                    fullname = "Not updated yet";
+                }
+                document.getElementById("fullname-0").innerHTML = fullname;
+                document.getElementById("job-0").innerHTML = job;
+                document.getElementById("username-title").innerHTML = username;
+            })
+            .catch(error => console.log(error));
+    }
+    myFunctionProfileViews();
 
     function logoutFunction() {
         localStorage.removeItem("token");
         localStorage.removeItem("role");
     }
 
-    function mydirectional(id){
-        window.location.href = '/user-detail.html?id=' + id
+    function mydirectional(id) {
+        // window.location.href = '/user-detail.html?id=' + id
     }
 
     console.log(localStorage.getItem("token"));

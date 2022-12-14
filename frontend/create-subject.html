@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Admin</title>
+  <title>Create Account</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -29,7 +29,7 @@
   <link href="js/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="/css/main.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
 
 </head>
 
@@ -78,6 +78,7 @@
             <span class="badge bg-success badge-number">3</span>
           </a><!-- End Messages Icon -->
 
+
         </li><!-- End Messages Nav -->
 
         <li class="nav-item dropdown pe-3">
@@ -115,6 +116,9 @@
             <li>
               <hr class="dropdown-divider">
             </li>
+
+
+
             <li>
               <a onclick="logoutFunction()" class="dropdown-item d-flex align-items-center" href="/index.html">
                 <i class="bi bi-box-arrow-right"></i>
@@ -191,125 +195,121 @@
         </ul>
       </li><!-- End Forms Nav -->
 
-       <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-menu-button-wide"></i><span>Subject</span><i
-                        class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="create-subject.html">
-                            <i class="bi bi-circle"></i><span>Create Subject</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="list-subject.html">
-                            <i class="bi bi-circle"></i><span>List Subject</span>
-                        </a>
-                    </li>
-                </ul>
-            </li><!-- End Components Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Subject</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="create-subject.html">
+              <i class="bi bi-circle"></i><span>Create Subject</span>
+            </a>
+          </li>
+          <li>
+            <a href="list-subject.html">
+              <i class="bi bi-circle"></i><span>List Subject</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->
 
+
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>Create Subject</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="admin.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item">Subject</li>
+          <li class="breadcrumb-item active">Create Subject</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section profile">
+    <section class="section">
       <div class="row">
-        <div class="col-xl-4">
-
+        <div class="col-lg-12">
           <div class="card">
-            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+            <div class="card-body">
+              <h5 class="card-title">Create Account</h5>
 
-              <img src="images/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <h2 id="fullname-first"></h2>
-              <h3 id="job-first"></h3>
-              <div class="social-links mt-2">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-xl-8">
-
-          <div class="card">
-            <div class="card-body pt-3">
-              <!-- Bordered Tabs -->
-              <ul class="nav nav-tabs nav-tabs-bordered">
-
-                <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab"
-                    data-bs-target="#profile-overview">Overview</button>
-                </li>
-              </ul>
-              <div class="tab-content pt-2">
-
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <h5 class="card-title">About</h5>
-                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque
-                    temporibus.
-                    Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet
-                    perspiciatis odit.
-                    Fuga sequi sed ea saepe at unde.</p>
-
-                  <h5 class="card-title">Profile Details</h5>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Full Name</div>
-                    <div id="fullname" class="col-lg-9 col-md-8"></div>
+              <!-- General Create Account -->
+              <form>
+                <div class="row">
+                  <div class="row mb-3 col-6">
+                    <label for="inputText" class="col-sm-2 col-form-label"><span class="text-danger">*</span>Subject:
+                    </label>
+                    <div class="col-sm-10">
+                      <input id="name" type="text" class="form-control" placeholder="NET Core" required="">
+                    </div>
                   </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Birthday</div>
-                    <div id="birthday" class="col-lg-9 col-md-8"></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Job</div>
-                    <div id="job" class="col-lg-9 col-md-8"></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Gender</div>
-                    <div id="gender" class="col-lg-9 col-md-8"></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div id="address" class="col-lg-9 col-md-8"></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div id="phonenumber" class="col-lg-9 col-md-8"></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div id="email" class="col-lg-9 col-md-8"></div>
+                  <div class="row mb-3 col-6">
+                    <label for="inputText" class="col-sm-2 col-form-label">ClassRoom:</label>
+                    <div class="col-sm-10">
+                      <input id="classRoom" type="text" class="form-control" placeholder="B16" required="">
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+                <div class="row">
+                  <div class="row mb-3 col-6">
+                    <label for="inputEmail" class="col-sm-2 col-form-label"><span class="text-danger">*</span> Start
+                      Time:
+                    </label>
+                    <div class="col-sm-10">
+                      <input id="startTime" type="datetime-local" class="form-control" placeholder="10:10:10" required="">
+                    </div>
+                  </div>
+                  <div class="row mb-3 col-6">
+                    <label for="inputText" class="col-sm-2 col-form-label">Exam Duration: </label>
+                    <div class="col-sm-10">
+                      <input id="duration" type="number" class="form-control" placeholder="60 minutes" required="">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="row mb-3 col-6">
+                    <label for="inputText" class="col-sm-2 col-form-label"><span class="text-danger">*</span> Exam Date:
+                    </label>
+                    <div class="col-sm-10">
+                      <input id="date" type="datetime-local" class="form-control" placeholder="20/20/2003" required="">
+                    </div>
+                  </div>
+                  <div class="row mb-3 col-6">
+                    <label for="inputText" class="col-sm-2 col-form-label">Faculty: </label>
+                    <div class="col-sm-10">
+                      <input id="faculty" type="text" class="form-control" placeholder="FPT Edu" required="">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="row mb-3 col-6">
+                    <label for="status" class="col-sm-2 col-form-label"> <span class="text-danger">*</span>
+                      Status: </label>
+                    <div class="col-sm-10">
+                      <input id="status" type="text" class="form-control" placeholder="ACTIVE" value="ACTIVE"
+                        required="">
+                    </div>
+                  </div>
+                </div>
 
+                <div class="row mb-3 col-6">
+                  <div class="col-sm-10">
+                    <button onclick="myfunction()" type="button" class="btn btn-primary">Create</button>
+                  </div>
+                </div>
+
+              </form>
+              <!-- End General Create Account -->
+
+            </div>
           </div>
+
         </div>
+      </div>
     </section>
 
   </main><!-- End #main -->
@@ -333,6 +333,7 @@
 </body>
 
 <script>
+
   function myFunctionProfileViews() {
     console.log(localStorage.getItem("id"));
     fetch('https://localhost:7155/api/Auth/' + localStorage.getItem("id"), {
@@ -353,50 +354,62 @@
         let firstname = response.firstName;
         let lastname = response.lastName;
         let fullname = firstname + " " + lastname;
-        let gender = response.gender;
-        let birthday = response.birthday;
-        // let job = response.Job;
         let job = response.role;
-        let address = response.address;
-        let phonenumber = response.phoneNumber;
-        let email = response.email;
         let username = response.username;
         console.log(username);
         if (fullname == null) {
           fullname = "Not updated yet";
         }
-        if (gender == null) {
-          gender = "Not updated yet";
-        }
-        if (birthday == null) {
-          birthday = "Not updated yet";
-        }
-        if (job == null) {
-          job = "Not updated yet";
-        }
-        if (address == null) {
-          address = "Not updated yet";
-        }
-        if (phonenumber == null) {
-          phonenumber = "Not updated yet";
-        }
         document.getElementById("fullname-0").innerHTML = fullname;
         document.getElementById("job-0").innerHTML = job;
-        document.getElementById("fullname-first").innerHTML = fullname;
-        document.getElementById("job-first").innerHTML = job;
-        document.getElementById("fullname").innerHTML = fullname;
-        document.getElementById("gender").innerHTML = gender;
-        document.getElementById("birthday").innerHTML = birthday;
-        document.getElementById("job").innerHTML = job;
-        document.getElementById("address").innerHTML = address;
-        document.getElementById("phonenumber").innerHTML = phonenumber;
-        document.getElementById("email").innerHTML = email;
-        console.log(username);
         document.getElementById("username-title").innerHTML = username;
       })
       .catch(error => console.log(error));
   }
   myFunctionProfileViews();
+
+  function myfunction() {
+    var nameIP = document.getElementById('name').value;
+    var classRoomIP = document.getElementById('classRoom').value;
+    var startTimeIP = document.getElementById('startTime').value;
+    var durationIP = document.getElementById('duration').value;
+    var dateIP = document.getElementById('date').value;
+    var facultyIP = document.getElementById('faculty').value;
+    var statusIP = document.getElementById('status').value;
+    let number = parseInt(durationIP);
+    let timeIp = startTimeIP.toString();
+    let datetimeIp = dateIP.toString();
+
+    const data = {
+      name: nameIP,
+      startTime: timeIp,
+      date: datetimeIp,
+      duration: number,
+      classRoom: classRoomIP,
+      faculty: facultyIP,
+      status: statusIP
+    };
+    fetch('https://localhost:7155/api/subject', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      },
+      body: JSON.stringify(data),
+
+    })
+      .then(response => {
+        if (response.status == 200) {
+          alert("Create subject success!");
+        }
+        else {
+          alert("Error! Please fill in the data completely...");
+        }
+      })
+      .catch(error => console.log(error));
+    console.log(data);
+  }
+
 
   function logoutFunction() {
     localStorage.removeItem("token");
@@ -404,16 +417,15 @@
     localStorage.removeItem("username");
     localStorage.removeItem("usernameUser");
   }
-
   console.log(localStorage.getItem("token"));
+
   function checkToken() {
     // if (localStorage.getItem("token") == null || localStorage.getItem("role") != "ADMIN") {
-      if (localStorage.getItem("token") == null || localStorage.getItem("role") != "Admin") {
+    if (localStorage.getItem("token") == null || localStorage.getItem("role") != "Admin") {
       window.location.href = '/404.html'
     }
   }
-  checkToken();
-
+//   checkToken();
 </script>
 
 </html>
