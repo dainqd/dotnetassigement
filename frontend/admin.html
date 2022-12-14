@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Admin</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="images/favicon.png" rel="icon">
+  <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="js/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="js/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="js/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="js/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="js/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="js/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="js/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="admin.html" class="logo d-flex align-items-center">
+        <img src="images/logo.png" alt="">
+        <span class="d-none d-lg-block">Admin</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">4</span>
+          </a><!-- End Notification Icon -->
+
+        </li><!-- End Notification Nav -->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-chat-left-text"></i>
+            <span class="badge bg-success badge-number">3</span>
+          </a><!-- End Messages Icon -->
+
+        </li><!-- End Messages Nav -->
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="images/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span id="username-title" class="d-none d-md-block dropdown-toggle ps-2"></span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6 id="fullname-0"></h6>
+              <span id="job-0"></span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="admin.html">
+                <i class="bi bi-person"></i>
+                <span>Admin</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a onclick="logoutFunction()" class="dropdown-item d-flex align-items-center" href="/index.html">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="admin.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="users-profile.html">
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Account Security</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="account-security.html">
+              <i class="bi bi-circle"></i><span>Security</span>
+            </a>
+          </li>
+          <li>
+            <a href="account-device.html">
+              <i class="bi bi-circle"></i><span>Device</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Account Management</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="create-account.html">
+              <i class="bi bi-circle"></i><span>Create Account</span>
+            </a>
+          </li>
+          <li>
+            <a href="list-account.html">
+              <i class="bi bi-circle"></i><span>List Accounts</span>
+            </a>
+          </li>
+          <li>
+            <a href="delete-account.html">
+              <i class="bi bi-circle"></i><span>Account Deleted</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/404.html">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="admin.html">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section profile">
+      <div class="row">
+        <div class="col-xl-4">
+
+          <div class="card">
+            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+              <img src="images/profile-img.jpg" alt="Profile" class="rounded-circle">
+              <h2 id="fullname-first"></h2>
+              <h3 id="job-first"></h3>
+              <div class="social-links mt-2">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-xl-8">
+
+          <div class="card">
+            <div class="card-body pt-3">
+              <!-- Bordered Tabs -->
+              <ul class="nav nav-tabs nav-tabs-bordered">
+
+                <li class="nav-item">
+                  <button class="nav-link active" data-bs-toggle="tab"
+                    data-bs-target="#profile-overview">Overview</button>
+                </li>
+              </ul>
+              <div class="tab-content pt-2">
+
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                  <h5 class="card-title">About</h5>
+                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque
+                    temporibus.
+                    Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet
+                    perspiciatis odit.
+                    Fuga sequi sed ea saepe at unde.</p>
+
+                  <h5 class="card-title">Profile Details</h5>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Full Name</div>
+                    <div id="fullname" class="col-lg-9 col-md-8"></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Birthday</div>
+                    <div id="birthday" class="col-lg-9 col-md-8"></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Job</div>
+                    <div id="job" class="col-lg-9 col-md-8"></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Gender</div>
+                    <div id="gender" class="col-lg-9 col-md-8"></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Address</div>
+                    <div id="address" class="col-lg-9 col-md-8"></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Phone</div>
+                    <div id="phonenumber" class="col-lg-9 col-md-8"></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Email</div>
+                    <div id="email" class="col-lg-9 col-md-8"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="js/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/vendor/chart.js/chart.min.js"></script>
+  <script src="js/vendor/echarts/echarts.min.js"></script>
+  <script src="js/vendor/quill/quill.min.js"></script>
+  <script src="js/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="js/vendor/tinymce/tinymce.min.js"></script>
+  <script src="js/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="js/main.js"></script>
+
+</body>
+
+<script>
+  function myFunctionProfileViews() {
+    console.log(localStorage.getItem("id"));
+    fetch('https://localhost:7155/api/Auth/' + localStorage.getItem("id"), {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      },
+    })
+      .then(response => {
+        if (response.status == 200) {
+          console.log(response);
+          return response.json();
+        }
+      })
+      .then((response) => {
+        console.log(response)
+        let firstname = response.firstName;
+        let lastname = response.lastName;
+        let fullname = firstname + " " + lastname;
+        let gender = response.gender;
+        let birthday = response.birthday;
+        // let job = response.Job;
+        let job = response.role;
+        let address = response.address;
+        let phonenumber = response.phoneNumber;
+        let email = response.email;
+        let username = response.username;
+        console.log(username);
+        if (fullname == null) {
+          fullname = "Not updated yet";
+        }
+        if (gender == null) {
+          gender = "Not updated yet";
+        }
+        if (birthday == null) {
+          birthday = "Not updated yet";
+        }
+        if (job == null) {
+          job = "Not updated yet";
+        }
+        if (address == null) {
+          address = "Not updated yet";
+        }
+        if (phonenumber == null) {
+          phonenumber = "Not updated yet";
+        }
+        document.getElementById("fullname-0").innerHTML = fullname;
+        document.getElementById("job-0").innerHTML = job;
+        document.getElementById("fullname-first").innerHTML = fullname;
+        document.getElementById("job-first").innerHTML = job;
+        document.getElementById("fullname").innerHTML = fullname;
+        document.getElementById("gender").innerHTML = gender;
+        document.getElementById("birthday").innerHTML = birthday;
+        document.getElementById("job").innerHTML = job;
+        document.getElementById("address").innerHTML = address;
+        document.getElementById("phonenumber").innerHTML = phonenumber;
+        document.getElementById("email").innerHTML = email;
+        console.log(username);
+        document.getElementById("username-title").innerHTML = username;
+      })
+      .catch(error => console.log(error));
+  }
+  myFunctionProfileViews();
+
+  function logoutFunction() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("username");
+    localStorage.removeItem("usernameUser");
+  }
+
+  console.log(localStorage.getItem("token"));
+  function checkToken() {
+    // if (localStorage.getItem("token") == null || localStorage.getItem("role") != "ADMIN") {
+      if (localStorage.getItem("token") == null || localStorage.getItem("role") != "Admin") {
+      window.location.href = '/404.html'
+    }
+  }
+  checkToken();
+
+</script>
+
+</html>

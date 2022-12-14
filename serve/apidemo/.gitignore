@@ -1,0 +1,10 @@
+appsettings.json
+appsettings.Development.json
+
+bin
+obj
+Properties
+Migrations
+
+
+apidemo.csproj
